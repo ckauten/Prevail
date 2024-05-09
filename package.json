@@ -1,0 +1,17 @@
+{
+  "name": "prevail-v2",
+  "version": "1.0.0",
+  "description": "An AI assisted mental health resource",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AI",
+    "mental",
+    "health",
+    "resource"
+  ],
+  "author": "Cameron Kauten",
+  "license": "ISC"
+}
