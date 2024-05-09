@@ -1,38 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet" />
+    <title>Eventually by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://kit.fontawesome.com/9e2575b702.js" crossorigin="anonymous"></script>
-
-    <title>Prevail Login</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body class="body login-page">
-    <!-- logo -->
-    <a href="#" id="prev">PREV<span id="ai">AI</span>L</a>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <h1>PREV<span id="ai">AI</span>L</h1>
+      <p>An AI assisted mental health resource.</p>
+    </header>
 
-    <!-- input boxes -->
-    <div class="info login">Login:</div>
-    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %>
-    <form action="/login" method="POST">
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <input type="submit" />
-    </form>
-    <a href="/signup" class="info signup"
-      >or <br />
-      click to sign up</a
-    >
+    <!-- Signup Form -->
+    <div id="container">
+      <form id="signup-form" method="POST" action="/signup">
+        <input type="submit" value="Sign Up" />
+      </form>
+      <form id="login-form" method="post" action="/login">
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons">
+        <li>
+          <a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+        </li>
+        <li>
+          <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+        </li>
+        <li>
+          <a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+        </li>
+        <li>
+          <a href="#" class="icon fa-envelope"><span class="label">Email</span></a>
+        </li>
+      </ul>
+      <ul class="copyright">
+        <li><a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
   </body>
 </html>
