@@ -986,10 +986,74 @@ button:disabled,
 .signup-page-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 1em;
   width: 18em;
   max-width: 25em;
+}
+
+/* HOME STYLING */
+/* NAV BAR */
+nav {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em;
+  list-style: none;
+  margin-left: 2.5vw;
+  color: white;
+}
+li {
+  display: flex;
+  align-items: center;
+  margin-right: 3vw;
+}
+
+.fa-user {
+  margin-right: 0.5vw;
+}
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 93vh;
+  color: white;
+}
+
+#output {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 47vh;
+  width: 48vw;
+  background: rgb(15, 0, 12);
+  border: solid 10px rgb(6, 0, 12);
+  border-radius: 10px;
+  padding: 2%;
+  font-size: 2.5rem;
+  margin-bottom: 2.5vh;
+}
+.input {
+  width: 25vw;
+  font-size: 2rem;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  overflow-y: hidden;
+  resize: none;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+}
+#submit {
+  margin-left: 1vh;
+  font-size: 3rem;
+  background: none;
+  border: none;
 }
 
 @media screen and (max-width: 480px) {

@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-<body class="body signup-page">
+<div class="body signup-page">
   <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
   <div class="alert alert-danger"><%= el.msg %></div>
   <% }) %> <% } %>
@@ -10,5 +10,6 @@
     <input type="password" name="confirmPassword" placeholder="Confirm Password" />
     <input type="submit" />
   </form>
-  <%- include('partials/footer') -%>
-</body>
+  <a href="/">< Go Back</a>
+</div>
+<%- include('partials/footer') -%>
