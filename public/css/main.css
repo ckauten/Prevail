@@ -746,6 +746,7 @@ input[type='password'],
 input[type='email'],
 select {
   height: 2.75em;
+  margin-bottom: 1em;
 }
 
 textarea {
@@ -979,6 +980,14 @@ button:disabled,
 }
 #login-form > * {
   margin: 0 0 0 1em;
+}
+
+.signup-page-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
+  max-width: 25em;
 }
 
 @media screen and (max-width: 480px) {
