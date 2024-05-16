@@ -1,3 +1,4 @@
+require('dotenv').config({ path: './config/.env' }); // Ensure this is at the very top
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -9,23 +10,24 @@ const logger = require('morgan');
 const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const chatRoutes = require('./routes/chatPage');
-
-//OpenAI connection
 const OpenAI = require('openai');
-const openai = new OpenAI(process.env.OPENAI_API_KEY);
+const openai = new OpenAI();
 
-require('dotenv').config({ path: './config/.env' });
+// OpenAI connection
 
 // Passport config
 require('./config/passport')(passport);
 
+// Connect to database
 connectDB();
 
+// Middleware setup
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public/'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger('dev'));
+
 // Sessions
 app.use(
   session({
@@ -45,10 +47,13 @@ app.use(passport.session());
 
 app.use(flash());
 
+// Routes
 app.use('/', mainRoutes);
 app.use('/chatPage', chatRoutes);
 
-//server listener
+// Server listener
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}, you better catch it!`);
 });
+
+module.exports = openai;
