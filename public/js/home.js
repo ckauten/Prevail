@@ -1,22 +1,21 @@
 // variables
 const textarea = document.getElementById('autoresizing');
 
-//text resizing func
+// text resizing function
 textarea.addEventListener('input', function () {
   this.style.height = 'auto'; // Reset the height
   this.style.height = this.scrollHeight + 'px'; // Set the height to scroll height
 });
 
-//event listeners for text boxes and button
+// event listeners for text boxes and button
 document.querySelector('#submit').addEventListener('click', generateText);
 
-//submit key listener
+// submit key listener
 const textInput = document.querySelector('textarea');
 textInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     generateText();
-    textarea.value = '';
-    // Perform desired actions here
+    textarea.value = ''; // Clear the textarea
   }
 });
 
@@ -33,12 +32,63 @@ async function generateText() {
   if (response.ok) {
     const data = await response.json();
     const chat = data.text;
-    document.querySelector('#output').textContent = chat;
-    console.log(chat);
+    const typewriteElement = document.querySelector('.typewrite');
+    typewriteElement.setAttribute('data-type', JSON.stringify([chat]));
+    typewriteElement.setAttribute('data-period', '1000'); // Adjust period as needed
+    // Restart the typing effect
+    new TxtType(typewriteElement, [chat], typewriteElement.getAttribute('data-period'));
   } else {
-    console.error(`"Error from server"`);
+    console.error('Error from server');
   }
 }
+
+// typewriter effect for text
+var TxtType = function (el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+};
+
+TxtType.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+  var that = this;
+  var delta = 100 - Math.random() * 100; // Faster typing effect
+
+  if (this.txt === fullTxt) {
+    return; // Stop once the full text is typed
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function () {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-type');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement('style');
+  css.type = 'text/css';
+  css.innerHTML = '.typewrite > .wrap { border-right: 0.08em solid #fff}';
+  document.body.appendChild(css);
+};
+
+// background video function
 (function () {
   'use strict';
 

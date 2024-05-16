@@ -7,7 +7,7 @@ module.exports = {
     try {
       const completion = await openai.chat.completions.create({
         messages: [{ role: 'assistant', content: prompt }],
-        model: 'gpt-4o',
+        model: 'gpt-3.5-turbo',
       });
 
       // Send the extracted text back to the client
