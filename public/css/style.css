@@ -1005,7 +1005,6 @@ nav {
 li {
   display: flex;
   align-items: center;
-  margin-right: 3vw;
 }
 
 .fa-user {
