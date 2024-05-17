@@ -1013,6 +1013,8 @@ button:disabled,
 /* HOME STYLING */
 /* NAV BAR */
 
+/* NAV BAR */
+
 .fa-bars {
   display: inline-block;
   position: relative;
@@ -1026,7 +1028,7 @@ button:disabled,
 }
 
 nav {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: fixed;
@@ -1038,7 +1040,16 @@ nav {
   margin-top: 2em;
   margin-left: 1em;
   color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
+
+nav.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 li {
   display: flex;
   align-items: center;

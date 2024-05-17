@@ -2,20 +2,25 @@
 const textarea = document.getElementById('autoresizing');
 const nav = document.querySelector('nav');
 
-// hamburger visibility toggle
-document.querySelector('.fa-bars').addEventListener('click', toggle);
-function toggle() {
-  var nav = document.querySelector('nav');
-  if (nav.style.display === 'none' || nav.style.display === '') {
-    nav.style.display = 'flex';
-  } else {
-    nav.style.display = 'none';
-  }
-}
-
 // when hamburger is clicked
-// if nav class = visible, change to hiddne
+// if nav class = visible, change to hidden
 // if nav class = hidden, change to visible
+
+// hamburger visibility toggle
+document.querySelector('.fa-bars').addEventListener('click', function () {
+  var nav = document.querySelector('nav');
+  if (nav.classList.contains('visible')) {
+    nav.classList.remove('visible');
+    setTimeout(function () {
+      nav.style.display = 'none';
+    }, 500); // Match this duration with the CSS transition duration
+  } else {
+    nav.style.display = 'flex';
+    setTimeout(function () {
+      nav.classList.add('visible');
+    }, 10); // Small delay to allow the display change to take effect
+  }
+});
 
 // text resizing function
 textarea.addEventListener('input', function () {
