@@ -1066,8 +1066,6 @@ li {
   display: flex;
   flex-direction: row;
 }
-.menu-container {
-}
 .main-body {
   display: flex;
   flex-direction: column;
