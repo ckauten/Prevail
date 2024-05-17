@@ -1,43 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<%- include('partials/homeHeader') -%>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://kit.fontawesome.com/9e2575b702.js" crossorigin="anonymous"></script>
-    <link type="text/css" rel="stylesheet" href="css/reset.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <title>Home</title>
-  </head>
-  <body id="home-body">
-    <header>
-      <nav>
-        <!-- logo text coloring -->
-        <li>
-          <a href="#" id="prev">PREV<span id="ai">AI</span>L</a>
-        </li>
-        <!-- other links -->
-        <li>About</li>
-        <li>Resources</li>
-        <li>FAQ</li>
-        <li>Contact</li>
-        <li>
-          <a id="login" href="#"><i class="fa-solid fa-user"></i>Account</a>
-        </li>
-      </nav>
-      <!-- ACCOUNT LOGIN -->
-    </header>
-
-    <!--text area -->
-    <section class="mainContainer">
-      <!-- terminal screen -->
+<body id="home-body">
+  <section class="mainContainer">
+    <nav>
+      <!-- logo text coloring -->
+      <li>
+        <a href="#" id="prev">PREV<span id="ai">AI</span>L</a>
+      </li>
+      <!-- other links -->
+      <li>About</li>
+      <li>Resources</li>
+      <li>FAQ</li>
+      <li>Contact</li>
+      <li>
+        <a id="login" href="#"><i class="fa-solid fa-user"></i>Account</a>
+      </li>
+    </nav>
+    <div class="main-body chat-side">
       <div class="output container">
         <h1>
           <a href="" class="typewrite" data-period="2000" data-type="">
@@ -51,7 +30,8 @@
         <textarea class="input" id="autoresizing" placeholder="Say something!"></textarea>
         <i id="submit" type="submit" class="fa-solid fa-arrow-up"></i>
       </form>
-    </section>
-    <script src="js/home.js"></script>
-  </body>
-</html>
+    </div>
+  </section>
+
+  <%- include('partials/homeFooter') -%>
+</body>
