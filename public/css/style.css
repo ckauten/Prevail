@@ -1012,8 +1012,21 @@ button:disabled,
 
 /* HOME STYLING */
 /* NAV BAR */
+
+.fa-bars {
+  display: inline-block;
+  position: relative;
+  font-size: 2em;
+  z-index: 1;
+  margin-top: 1em;
+  margin-left: 1em;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
 nav {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-evenly;
   position: fixed;
@@ -1022,12 +1035,15 @@ nav {
   width: 7.5em;
   font-size: 2em;
   list-style: none;
-  margin: 1em;
+  margin-top: 2em;
+  margin-left: 1em;
   color: white;
 }
 li {
   display: flex;
   align-items: center;
+  margin: 0.5em 0;
+  cursor: pointer;
 }
 
 .fa-user {
@@ -1038,6 +1054,8 @@ li {
   height: 100vh;
   display: flex;
   flex-direction: row;
+}
+.menu-container {
 }
 .main-body {
   display: flex;

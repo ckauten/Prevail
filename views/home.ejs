@@ -2,20 +2,23 @@
 
 <body id="home-body">
   <section class="mainContainer">
-    <nav>
-      <!-- logo text coloring -->
-      <li>
-        <a href="#" id="prev">PREV<span id="ai">AI</span>L</a>
-      </li>
-      <!-- other links -->
-      <li>About</li>
-      <li>Resources</li>
-      <li>FAQ</li>
-      <li>Contact</li>
-      <li>
-        <a id="login" href="#"><i class="fa-solid fa-user"></i>Account</a>
-      </li>
-    </nav>
+    <div class="menu-container">
+      <i class="fa-solid fa-bars"></i>
+      <nav>
+        <!-- logo text coloring -->
+        <li>
+          <a href="#" id="prev">PREV<span id="ai">AI</span>L</a>
+        </li>
+        <!-- other links -->
+        <li><a href="#"></a>About</li>
+        <li><a href="#"></a>Resources</li>
+        <li><a href="#"></a>FAQ</li>
+        <li><a href="#"></a>Contact</li>
+        <li>
+          <a id="login" href="#"><i class="fa-solid fa-user"></i>Account</a>
+        </li>
+      </nav>
+    </div>
     <div class="main-body chat-side">
       <div class="output container">
         <h1>
@@ -32,6 +35,5 @@
       </form>
     </div>
   </section>
-
-  <%- include('partials/homeFooter') -%>
 </body>
+<%- include('partials/homeFooter') -%>

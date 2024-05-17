@@ -1,5 +1,21 @@
 // variables
 const textarea = document.getElementById('autoresizing');
+const nav = document.querySelector('nav');
+
+// hamburger visibility toggle
+document.querySelector('.fa-bars').addEventListener('click', toggle);
+function toggle() {
+  var nav = document.querySelector('nav');
+  if (nav.style.display === 'none' || nav.style.display === '') {
+    nav.style.display = 'flex';
+  } else {
+    nav.style.display = 'none';
+  }
+}
+
+// when hamburger is clicked
+// if nav class = visible, change to hiddne
+// if nav class = hidden, change to visible
 
 // text resizing function
 textarea.addEventListener('input', function () {
