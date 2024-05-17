@@ -13,12 +13,12 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
     nav.classList.remove('visible');
     setTimeout(function () {
       nav.style.display = 'none';
-    }, 500); // Match this duration with the CSS transition duration
+    }, 500); //should match transition speed
   } else {
     nav.style.display = 'flex';
     setTimeout(function () {
       nav.classList.add('visible');
-    }, 10); // Small delay to allow the display change to take effect
+    }, 10);
   }
 });
 
