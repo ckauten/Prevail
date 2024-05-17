@@ -6,7 +6,12 @@ module.exports = {
     const { prompt } = req.body; // Destructure 'prompt' from the request body
     try {
       const completion = await openai.chat.completions.create({
-        messages: [{ role: 'assistant', content: prompt }],
+        messages: [
+          {
+            role: 'assistant',
+            content: `You are a mental health assistant. Your name is Grace. Your answers will be short and tender. Their name is ${req.user.userName}. This is the prompt: ${prompt}`,
+          },
+        ],
         model: 'gpt-3.5-turbo',
       });
 

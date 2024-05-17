@@ -55,7 +55,7 @@ async function generateText() {
     const chat = data.text;
     const typewriteElement = document.querySelector('.typewrite');
     typewriteElement.setAttribute('data-type', JSON.stringify([chat]));
-    typewriteElement.setAttribute('data-period', '1000'); // Adjust period as needed
+    typewriteElement.setAttribute('data-period', '500'); // Adjust period as needed
     // Restart the typing effect
     new TxtType(typewriteElement, [chat], typewriteElement.getAttribute('data-period'));
   } else {
