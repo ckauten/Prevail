@@ -1084,17 +1084,18 @@ li {
   width: 48vw;
   padding: 2%;
   font-size: 1rem;
-  margin-top: 25em;
+  margin-top: 20em;
   margin-bottom: 2.5vh;
   max-width: 40rem;
 }
 .input {
   width: 25vw;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   background-color: black;
   overflow-y: hidden;
   resize: none;
+  height: auto;
 }
 
 .user-area {
