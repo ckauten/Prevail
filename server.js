@@ -1,4 +1,5 @@
 require('dotenv').config({ path: './config/.env' }); // Ensure this is at the very top
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -12,8 +13,6 @@ const mainRoutes = require('./routes/main');
 const chatRoutes = require('./routes/chatPage');
 const OpenAI = require('openai');
 const openai = new OpenAI();
-
-// OpenAI connection
 
 // Passport config
 require('./config/passport')(passport);

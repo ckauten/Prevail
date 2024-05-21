@@ -2,15 +2,12 @@ const mongoose = require('mongoose');
 
 const ChatSchema = new mongoose.Schema({
   chat: {
-    type: String,
+    type: Object,
     required: true,
   },
-  completed: {
-    type: Boolean,
-    required: true,
-  },
-  userId: {
-    type: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
 });
