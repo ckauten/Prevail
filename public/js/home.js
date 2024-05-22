@@ -83,12 +83,12 @@ async function generateText() {
     // Create user message element
     const userMessageElement = document.createElement('li');
     userMessageElement.classList.add('chat-message', 'user-message'); // Add classes for styling
-    userMessageElement.innerHTML = `<p class="chat user"><strong>User:</strong> ${prompt}</p>`;
+    userMessageElement.innerHTML = `<p class="chat user"><strong>User: </strong> ${prompt}</p>`;
 
     // Create bot message element
     const botMessageElement = document.createElement('li');
     botMessageElement.classList.add('chat-message', 'bot-message'); // Add classes for styling
-    botMessageElement.innerHTML = `<p class="chat bot"><strong>Bot:</strong> ${chat}</p>`;
+    botMessageElement.innerHTML = `<p class="chat bot"><strong>Grace:</strong> ${chat}</p>`;
 
     // Append messages
     chatContainer.appendChild(userMessageElement);

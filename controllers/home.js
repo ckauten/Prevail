@@ -18,8 +18,8 @@ module.exports = {
       if (chatCount === 0) {
         await Chat.create({
           chat: {
-            userPrompt: `your name is Grace. You are a mental health assistant. The users name is ${req.user}. Your answers will be gentle and concise.`,
-            botResponse: 'ok i will remember that',
+            userPrompt: `your name is Grace. You are a mental health assistant. The users name is ${req.user}. Your answers will be gentle and concise`,
+            botResponse: 'ok i will remember that and not ask how i can support the user every time',
           },
           user: req.user,
         });

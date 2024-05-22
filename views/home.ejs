@@ -21,14 +21,14 @@
       <div class="output container">
         <ul class="row list-unstyled" id="chat-container">
           <li id="botLI">
-            <p class="chat bot"><strong>Bot: </strong>Hello! How are you?</p>
+            <p class="chat bot"><strong>Grace: </strong>Hello! How are you?</p>
           </li>
           <% if (chats.length>0) { %> <% for (var i = 1; i < chats.length; i++) { %>
           <li id="userLI">
-            <p class="chat user"><strong>User:</strong> <%= chats[i].chat.userPrompt %></p>
+            <p class="chat user"><strong>User: </strong> <%= chats[i].chat.userPrompt %></p>
           </li>
           <li id="botLI">
-            <p class="chat bot"><strong>Bot:</strong> <%= chats[i].chat.botResponse %></p>
+            <p class="chat bot"><strong>Grace: </strong> <%= chats[i].chat.botResponse %></p>
           </li>
           <% } %> <% } else { %>
           <li>No chat history available.</li>
