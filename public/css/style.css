@@ -1075,12 +1075,11 @@ li {
   display: flex;
   flex-direction: column-reverse;
   height: 55em;
-  width: 40em;
+  width: 60em;
   margin-top: 5em;
   padding: 2%;
   font-size: 1rem;
   margin-bottom: 2.5vh;
-  max-width: 40rem;
   /* border: solid thick white; */
   overflow: scroll;
   scrollbar-width: none;
