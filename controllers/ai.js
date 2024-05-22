@@ -33,6 +33,7 @@ module.exports = {
         chat: { userPrompt: prompt, botResponse: botResponse },
         user: req.user,
       });
+      console.log('Chat was created');
     } catch (error) {
       console.error('Failed to fetch OpenAI completion:', error);
       res.status(500).send('Internal Server Error');

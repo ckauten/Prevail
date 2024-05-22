@@ -320,10 +320,6 @@ i {
   font-style: italic;
 }
 
-p {
-  margin: 0 0 2em 0;
-}
-
 h1,
 h2,
 h3,
@@ -1073,26 +1069,74 @@ li {
   align-items: center;
   justify-content: space-between;
   margin: 1em 0;
+  position: relative;
 }
 .output {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-self: center;
-  text-align: center;
-  height: 47vh;
-  width: 48vw;
+  flex-direction: column-reverse;
+  height: 55em;
+  width: 40em;
+  margin-top: 5em;
   padding: 2%;
   font-size: 1rem;
-  margin-top: 20em;
   margin-bottom: 2.5vh;
   max-width: 40rem;
+  /* border: solid thick white; */
+  overflow: scroll;
+  scrollbar-width: none;
 }
+#userLI {
+  display: flex;
+  justify-content: flex-end;
+  /* border: solid white thin; */
+  border-radius: 0.5em;
+  height: auto;
+  width: auto;
+  padding: 0.5em;
+  font-size: 1.25em;
+  background: rgba(69, 69, 69, 0.25);
+}
+#botLI {
+  display: flex;
+  justify-content: flex-start;
+  /* border: solid white thin; */
+  border-radius: 0.5em;
+  height: auto;
+  width: auto;
+  padding: 0.5em;
+  font-size: 1.25em;
+  background: rgba(69, 69, 69, 0.5);
+}
+
+/* Add these styles at the end of your style.css file */
+
+/* Chat message styling */
+.chat-message {
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1.25em;
+}
+
+/* User message styling */
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(69, 69, 69, 0.125);
+}
+
+/* Bot message styling */
+.bot-message {
+  display: flex;
+  justify-content: flex-start;
+  background: rgba(69, 69, 69, 0.25);
+}
+
 .input {
   width: 25vw;
   font-size: 1.5rem;
   color: white;
-  background-color: black;
+  background: rgba(0, 0, 0, 0.5);
   overflow-y: hidden;
   resize: none;
   height: auto;
@@ -1108,35 +1152,11 @@ li {
   font-size: 3rem;
   background: none;
   border: none;
-  position: relative;
+  position: static;
 }
-
-/* Home video background */
-/* .video-background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.video-background {
+.menu-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
 }
-
-.content {
-  position: relative;
-  z-index: 1;
-  color: white;
-} */
 
 @media screen and (max-width: 480px) {
   #signup-form {

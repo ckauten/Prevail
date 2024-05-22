@@ -2,10 +2,6 @@
 const textarea = document.getElementById('autoresizing');
 const nav = document.querySelector('nav');
 
-// when hamburger is clicked
-// if nav class = visible, change to hidden
-// if nav class = hidden, change to visible
-
 // hamburger visibility toggle
 document.querySelector('.fa-bars').addEventListener('click', function () {
   var nav = document.querySelector('nav');
@@ -22,22 +18,49 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
   }
 });
 
-// text resizing function
-textarea.addEventListener('input', function () {
-  this.style.height = 'auto'; // Reset the height
-  this.style.height = this.scrollHeight + 'px'; // Set the height to scroll height
-});
+document.addEventListener('DOMContentLoaded', function () {
+  // MutationObserver to watch for added elements and apply styles
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1 && node.tagName === 'LI') {
+            if (node.classList.contains('user-message')) {
+              node.classList.add('userLI'); // Add user styling class
+            } else if (node.classList.contains('bot-message')) {
+              node.classList.add('botLI'); // Add bot styling class
+            }
+          }
+        });
+      }
+    });
+  });
 
-// event listeners for text boxes and button
-document.querySelector('#submit').addEventListener('click', generateText);
+  // Start observing the chat container for child list item additions
+  observer.observe(document.getElementById('chat-container'), { childList: true });
 
-// submit key listener
-const textInput = document.querySelector('textarea');
-textInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
+  // Text resizing function
+  const textarea = document.getElementById('autoresizing');
+  textarea.addEventListener('input', function () {
+    this.style.height = 'auto'; // Reset the height
+    this.style.height = this.scrollHeight + 'px'; // Set the height to scroll height
+  });
+
+  // Submit key listener
+  const textInput = document.querySelector('textarea');
+  textInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      generateText();
+      textarea.value = ''; // Clear the textarea
+    }
+  });
+
+  // Event listener for submit button click
+  document.getElementById('submit').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the form from submitting normally
     generateText();
-    textarea.value = ''; // Clear the textarea
-  }
+  });
 });
 
 async function generateText() {
@@ -53,11 +76,29 @@ async function generateText() {
   if (response.ok) {
     const data = await response.json();
     const chat = data.text;
-    const typewriteElement = document.querySelector('.typewrite');
-    typewriteElement.setAttribute('data-type', JSON.stringify([chat]));
-    typewriteElement.setAttribute('data-period', '500'); // Adjust period as needed
-    // Restart the typing effect
-    new TxtType(typewriteElement, [chat], typewriteElement.getAttribute('data-period'));
+
+    // Update the chat container
+    const chatContainer = document.getElementById('chat-container');
+
+    // Create user message element
+    const userMessageElement = document.createElement('li');
+    userMessageElement.classList.add('chat-message', 'user-message'); // Add classes for styling
+    userMessageElement.innerHTML = `<p class="chat user"><strong>User:</strong> ${prompt}</p>`;
+
+    // Create bot message element
+    const botMessageElement = document.createElement('li');
+    botMessageElement.classList.add('chat-message', 'bot-message'); // Add classes for styling
+    botMessageElement.innerHTML = `<p class="chat bot"><strong>Bot:</strong> ${chat}</p>`;
+
+    // Append messages
+    chatContainer.appendChild(userMessageElement);
+    chatContainer.appendChild(botMessageElement);
+
+    // Scroll to the bottom of the chat container
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // Clear the input field
+    document.querySelector('textarea').value = '';
   } else {
     console.error('Error from server');
   }
@@ -194,7 +235,7 @@ window.onload = function () {
       },
 
       // Delay.
-      delay: 15000,
+      delay: 10000,
     };
 
     // Vars.
@@ -252,7 +293,7 @@ window.onload = function () {
       // Hide last video after a short delay.
       window.setTimeout(function () {
         $bgs[lastPos].classList.remove('visible');
-      }, settings.delay / 2);
+      }, 1000); // Adjust this to match the CSS transition duration
     }, settings.delay);
   })();
 })();

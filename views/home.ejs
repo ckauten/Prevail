@@ -19,16 +19,36 @@
     </div>
     <div class="main-body chat-side">
       <div class="output container">
-        <h1>
-          <a href="" class="typewrite" data-period="2000" data-type="">
-            <span class="wrap"></span>
-          </a>
-        </h1>
+        <ul class="row list-unstyled" id="chat-container">
+          <li id="botLI">
+            <p class="chat bot"><strong>Bot: </strong>Hello! How are you?</p>
+          </li>
+          <% if (chats.length>0) { %> <% for (var i = 1; i < chats.length; i++) { %>
+          <li id="userLI">
+            <p class="chat user"><strong>User:</strong> <%= chats[i].chat.userPrompt %></p>
+          </li>
+          <li id="botLI">
+            <p class="chat bot"><strong>Bot:</strong> <%= chats[i].chat.botResponse %></p>
+          </li>
+          <% } %> <% } else { %>
+          <li>No chat history available.</li>
+          <% } %>
+        </ul>
       </div>
 
+      <!-- <p href="" class="typewrite" data-period="2000" data-type="">
+        <span class="wrap"></span>
+      </p> -->
+
       <!-- user input area -->
-      <form class="user-area" action="">
-        <textarea class="input" id="autoresizing" placeholder="Say something!"></textarea>
+      <form class="user-area" action="" onsubmit="return false">
+        <textarea
+          data-gramm="false"
+          data-gramm_editor="false"
+          data-enable-grammarly="false"
+          class="input"
+          id="autoresizing"
+          placeholder="Say something!"></textarea>
         <i id="submit" type="submit" class="fa-solid fa-arrow-up"></i>
       </form>
     </div>
