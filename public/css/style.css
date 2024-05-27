@@ -1259,15 +1259,16 @@ li {
 }
 
 .expanded {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   border: solid 10px;
   border-color: rgba(255, 255, 255, 0);
   border-radius: 1em;
-  display: flex;
-  flex-wrap: wrap;
+  background: rgb(254, 232, 198);
   width: 50em;
   height: 50em;
   margin: 1em;
-  justify-content: center;
   font-weight: 600;
 }
 
