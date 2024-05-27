@@ -5,6 +5,9 @@ module.exports = {
   getIndex: (req, res) => {
     res.render('index.ejs');
   },
+  getResources: (req, res) => {
+    res.render('resources.ejs');
+  },
   //renders home page once logged in
   getHome: async (req, res) => {
     try {
