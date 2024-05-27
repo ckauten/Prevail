@@ -297,3 +297,15 @@ window.onload = function () {
     }, settings.delay);
   })();
 })();
+
+// Resources drop/expansion logic
+function expand(event) {
+  if (event.classList.contains('expanded')) {
+    event.classList.remove('expanded');
+    document.querySelector('.resource-container').classList.remove('container-expanded');
+  } else {
+    event.classList.add('expanded');
+    document.querySelector('.resource-container').classList.add('container-expanded');
+    event.scrollIntoView({ block: 'center' });
+  }
+}

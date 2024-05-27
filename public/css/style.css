@@ -1172,6 +1172,17 @@ li {
   margin: auto;
   margin-top: 5em;
 }
+.container-expanded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 1em;
+  width: 80%;
+  margin: auto;
+  margin-top: 5em;
+}
 .resource-boxes {
   border: solid 10px;
   border-color: rgba(255, 255, 255, 0);
@@ -1245,6 +1256,19 @@ li {
   background-size: contain;
   color: black;
   padding-top: 1em;
+}
+
+.expanded {
+  border: solid 10px;
+  border-color: rgba(255, 255, 255, 0);
+  border-radius: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50em;
+  height: 50em;
+  margin: 1em;
+  justify-content: center;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 480px) {
