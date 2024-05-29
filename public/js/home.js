@@ -303,9 +303,11 @@ function expand(event) {
   if (event.classList.contains('expanded')) {
     event.classList.remove('expanded');
     document.querySelector('.resource-container').classList.remove('container-expanded');
+    event.querySelector('.expanded-content').style.display = 'none';
   } else {
     event.classList.add('expanded');
     document.querySelector('.resource-container').classList.add('container-expanded');
+    event.querySelector('.expanded-content').style.display = 'flex';
     event.scrollIntoView({ block: 'center' });
   }
 }
