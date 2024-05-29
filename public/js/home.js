@@ -298,7 +298,7 @@ window.onload = function () {
   })();
 })();
 
-// Resources drop/expansion logic
+// Resources expansion logic
 function expand(event) {
   if (event.classList.contains('expanded')) {
     event.classList.remove('expanded');
