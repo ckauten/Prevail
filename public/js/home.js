@@ -304,10 +304,17 @@ function expand(event) {
     event.classList.remove('expanded');
     document.querySelector('.resource-container').classList.remove('container-expanded');
     event.querySelector('.expanded-content').style.display = 'none';
+    event.querySelector('.node-label').style.display = 'flex';
   } else {
     event.classList.add('expanded');
     document.querySelector('.resource-container').classList.add('container-expanded');
     event.querySelector('.expanded-content').style.display = 'flex';
+    event.querySelector('.node-label').style.display = 'none';
+    // event.scrollIntoView({ block: 'center' });
+  }
+  if (window.innerWidth <= 980) {
+    event.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  } else {
     event.scrollIntoView({ block: 'center' });
   }
 }

@@ -1414,6 +1414,15 @@ li {
     width: auto;
     height: auto;
   }
+  .output {
+    width: auto;
+  }
+  .input {
+    width: auto;
+  }
+  #submit {
+    display: none;
+  }
 }
 @media screen and (max-width: 736px) {
   #footer {
