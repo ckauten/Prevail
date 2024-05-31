@@ -18,50 +18,53 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  // MutationObserver to watch for added elements and apply styles
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.addedNodes.length) {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === 1 && node.tagName === 'LI') {
-            if (node.classList.contains('user-message')) {
-              node.classList.add('userLI'); // Add user styling class
-            } else if (node.classList.contains('bot-message')) {
-              node.classList.add('botLI'); // Add bot styling class
+// home observer toggle depending on page
+if (document.contains(document.querySelector('.output'))) {
+  document.addEventListener('DOMContentLoaded', function () {
+    // MutationObserver to watch for added elements and apply styles
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1 && node.tagName === 'LI') {
+              if (node.classList.contains('user-message')) {
+                node.classList.add('userLI'); // Add user styling class
+              } else if (node.classList.contains('bot-message')) {
+                node.classList.add('botLI'); // Add bot styling class
+              }
             }
-          }
-        });
+          });
+        }
+      });
+    });
+
+    // Start observing the chat container for child list item additions
+    observer.observe(document.getElementById('chat-container'), { childList: true });
+
+    // Text resizing function
+    const textarea = document.getElementById('autoresizing');
+    textarea.addEventListener('input', function () {
+      this.style.height = 'auto'; // Reset the height
+      this.style.height = this.scrollHeight + 'px'; // Set the height to scroll height
+    });
+
+    // Submit key listener
+    const textInput = document.querySelector('textarea');
+    textInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        generateText();
+        textarea.value = ''; // Clear the textarea
       }
     });
-  });
 
-  // Start observing the chat container for child list item additions
-  observer.observe(document.getElementById('chat-container'), { childList: true });
-
-  // Text resizing function
-  const textarea = document.getElementById('autoresizing');
-  textarea.addEventListener('input', function () {
-    this.style.height = 'auto'; // Reset the height
-    this.style.height = this.scrollHeight + 'px'; // Set the height to scroll height
-  });
-
-  // Submit key listener
-  const textInput = document.querySelector('textarea');
-  textInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
+    // Event listener for submit button click
+    document.getElementById('submit').addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the form from submitting normally
       generateText();
-      textarea.value = ''; // Clear the textarea
-    }
+    });
   });
-
-  // Event listener for submit button click
-  document.getElementById('submit').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-    generateText();
-  });
-});
+}
 
 async function generateText() {
   const prompt = document.querySelector('textarea').value;
@@ -299,22 +302,49 @@ window.onload = function () {
 })();
 
 // Resources expansion logic
-function expand(event) {
-  if (event.classList.contains('expanded')) {
-    event.classList.remove('expanded');
+function expand(element) {
+  if (element.classList.contains('expanded')) {
+    element.classList.remove('expanded');
     document.querySelector('.resource-container').classList.remove('container-expanded');
-    event.querySelector('.expanded-content').style.display = 'none';
-    event.querySelector('.node-label').style.display = 'flex';
+    element.querySelector('.expanded-content').style.display = 'none';
+    element.querySelector('.node-label').style.display = 'flex';
   } else {
-    event.classList.add('expanded');
+    element.classList.add('expanded');
     document.querySelector('.resource-container').classList.add('container-expanded');
-    event.querySelector('.expanded-content').style.display = 'flex';
-    event.querySelector('.node-label').style.display = 'none';
-    // event.scrollIntoView({ block: 'center' });
+    element.querySelector('.expanded-content').style.display = 'flex';
+    element.querySelector('.node-label').style.display = 'none';
   }
   if (window.innerWidth <= 980) {
-    event.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
   } else {
-    event.scrollIntoView({ block: 'center' });
+    element.scrollIntoView({ block: 'center' });
   }
+}
+
+// Emergency services expansion logic
+document.addEventListener('DOMContentLoaded', function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('showEmergencyServices') === 'true') {
+    const emergencyElement = document.querySelector('#emergency');
+    if (emergencyElement) {
+      expand(emergencyElement);
+    }
+  }
+});
+
+//FAQ expansion logic
+function faqExpand(event) {
+  if (event.classList.contains('faq-expanded')) {
+    event.classList.remove('faq-expanded');
+    event.querySelector('.bottom-faq').style.display = 'none';
+    event.querySelector('.fa-chevron-down').classList.replace('fa-chevron-down', 'fa-chevron-right');
+  } else {
+    event.classList.add('faq-expanded');
+    event.querySelector('.bottom-faq').style.display = 'flex';
+    event.querySelector('.fa-chevron-right').classList.replace('fa-chevron-right', 'fa-chevron-down');
+  }
+}
+
+function ESRedirect() {
+  window.location.href = '/resources?showEmergencyServices=true';
 }

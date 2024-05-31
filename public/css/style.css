@@ -1312,6 +1312,62 @@ li {
   margin: auto;
 }
 
+/* Faq margin reset from previous h2 usage */
+.faq-question {
+  margin: 0;
+}
+#faqContainer {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 70%;
+  height: 80%;
+  color: white;
+  /* border: solid white thin; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.faq-node {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.top-faq {
+  position: relative;
+  background: rgba(69, 69, 69, 0.5);
+  padding: 1em;
+  cursor: pointer;
+  width: 100%;
+}
+.bottom-faq {
+  display: none;
+  padding: 1em;
+  background: rgba(69, 69, 69, 0.25);
+}
+.fa-chevron-right {
+  position: absolute;
+  right: 0;
+  padding-right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.fa-chevron-down {
+  position: absolute;
+  right: 0;
+  padding-right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#ESLink {
+  color: rgb(28, 180, 149);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
   #signup-form {
     -moz-flex-direction: column;

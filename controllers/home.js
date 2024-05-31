@@ -8,6 +8,9 @@ module.exports = {
   getResources: (req, res) => {
     res.render('resources.ejs');
   },
+  getFaq: (req, res) => {
+    res.render('faq.ejs');
+  },
   //renders home page once logged in
   getHome: async (req, res) => {
     try {
