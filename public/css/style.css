@@ -1013,6 +1013,7 @@ button:disabled,
   height: 100vh;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 .mainContainer.resources {
   width: 100vw;
@@ -1029,6 +1030,8 @@ button:disabled,
   justify-content: space-between;
   margin: 1em 0;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 .fa-bars {
   display: flex;
@@ -1491,7 +1494,7 @@ li {
   .output {
     width: auto;
     margin: 1em;
-    height: 60vh;
+    height: 75vh;
   }
   .input {
     width: auto;
@@ -1538,7 +1541,7 @@ li {
 @media screen and (max-width: 430px) {
   .mainContainer {
     flex-direction: column;
-    padding: 1em;
+    /* padding: 1em; */
   }
   .main-body {
     margin: 4em 0 3em 0;
