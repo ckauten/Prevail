@@ -1052,17 +1052,18 @@ nav {
   font-size: 2em;
   list-style: none;
   margin-top: 2em;
-  margin-left: 1em;
+  padding-left: 1em;
   color: white;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.3s ease-out;
+  transform: translateX(-100%);
 }
 
 nav.visible {
   opacity: 1;
   visibility: visible;
-  z-index: 1;
+  transform: translateX(0);
 }
 
 li {
@@ -1469,6 +1470,7 @@ li {
   .mainContainer {
     height: 100%;
     width: 100%;
+    align-items: stretch;
   }
   .faq-container {
     margin-bottom: 2em;
@@ -1512,5 +1514,39 @@ li {
     left: auto;
     margin: 1em 0 0 0;
     position: relative;
+  }
+}
+@media screen and (max-width: 430px) {
+  .mainContainer {
+    flex-direction: column;
+    padding: 1em;
+  }
+  .main-body {
+    margin: 4em 0;
+  }
+  .output {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+  }
+  .input {
+    /* width: 90%; */
+    font-size: 1rem;
+  }
+  #submit {
+    font-size: 2rem;
+    width: 10%;
+  }
+  nav {
+    margin-top: 0;
+    padding-top: 2em;
+    background: rgb(32, 32, 32);
+    z-index: 1;
+    border-bottom-right-radius: 1em;
+  }
+  .fa-bars {
+    margin: 0.5em;
+    cursor: pointer;
+    z-index: 2;
   }
 }

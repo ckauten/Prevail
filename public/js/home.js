@@ -4,6 +4,7 @@ const nav = document.querySelector('nav');
 
 // hamburger visibility toggle
 document.querySelector('.fa-bars').addEventListener('click', function () {
+  document.querySelector('nav').classList.toggle('open');
   var nav = document.querySelector('nav');
   if (nav.classList.contains('visible')) {
     nav.classList.remove('visible');
