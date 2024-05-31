@@ -80,6 +80,8 @@ body {
 }
 #home-body {
   padding: 0;
+  height: 100vh;
+  margin: 0;
 }
 body.is-preload *,
 body.is-preload *:before,
