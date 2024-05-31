@@ -1032,7 +1032,7 @@ button:disabled,
   display: flex;
   position: absolute;
   font-size: 2em;
-  z-index: 1;
+  z-index: 2;
   margin-top: 1em;
   margin-left: 1em;
   width: auto;
@@ -1058,6 +1058,7 @@ nav {
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.3s ease-out;
   transform: translateX(-100%);
+  z-index: 1;
 }
 
 nav.visible {
@@ -1560,7 +1561,7 @@ li {
     border-bottom-right-radius: 1em;
   }
   .fa-bars {
-    margin: 0.5em;
+    margin: 1em, 0.5em, 0.5em, 0.5em;
     cursor: pointer;
     z-index: 2;
   }
