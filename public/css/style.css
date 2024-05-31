@@ -1079,7 +1079,7 @@ li {
 .output {
   display: flex;
   flex-direction: column-reverse;
-  height: 55em;
+  height: auto;
   width: 60em;
   margin-top: 5em;
   padding: 2%;
@@ -1466,9 +1466,9 @@ li {
   }
 }
 @media screen and (max-width: 980px) {
-  .mainContainer {
+  /* .mainContainer {
     margin-bottom: 2em;
-  }
+  } */
   .faq-container {
     margin-bottom: 2em;
   }
@@ -1484,6 +1484,7 @@ li {
   }
   .output {
     width: auto;
+    margin: 1em;
   }
   .input {
     width: auto;
