@@ -1466,6 +1466,18 @@ li {
   }
 }
 @media screen and (max-width: 980px) {
+  .mainContainer {
+    margin-bottom: 2em;
+  }
+  .faq-container {
+    margin-bottom: 2em;
+  }
+  .faq-question {
+    max-width: 80%;
+  }
+  .mainContainer .faq {
+    height: auto;
+  }
   .expanded {
     width: auto;
     height: auto;
