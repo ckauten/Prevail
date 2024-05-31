@@ -1495,6 +1495,21 @@ li {
   #submit {
     display: none;
   }
+  nav {
+    margin-top: 0;
+    padding-top: 2em;
+    background: rgb(32, 32, 32);
+    z-index: 1;
+    border-bottom-right-radius: 1em;
+  }
+  .fa-bars {
+    margin: 0.5em;
+    cursor: pointer;
+    z-index: 2;
+  }
+  #account {
+    margin-bottom: 1em;
+  }
 }
 @media screen and (max-width: 736px) {
   #footer {
@@ -1522,7 +1537,7 @@ li {
     padding: 1em;
   }
   .main-body {
-    margin: 4em 0;
+    margin: 4em 0 3em 0;
   }
   .output {
     width: 100%;
@@ -1548,5 +1563,8 @@ li {
     margin: 0.5em;
     cursor: pointer;
     z-index: 2;
+  }
+  #account {
+    margin-bottom: 1em;
   }
 }
