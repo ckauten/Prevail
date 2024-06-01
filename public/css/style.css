@@ -1552,6 +1552,7 @@ li {
     width: 100%;
     margin: 0;
     padding: 1em;
+    height: 60vh;
   }
   .input {
     /* width: 90%; */
