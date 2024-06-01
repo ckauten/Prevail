@@ -37,6 +37,9 @@ textarea {
     min-width: 320px;
   }
 }
+body {
+  padding: 2em, 1em;
+}
 
 html {
   box-sizing: border-box;
@@ -74,7 +77,7 @@ body {
   -moz-justify-content: center;
   -webkit-justify-content: center;
   -ms-justify-content: center;
-  /* justify-content: center; */
+  justify-content: center;
   background-color: #000;
   padding: 6em 4em 4em 4em;
 }
@@ -1015,6 +1018,7 @@ button:disabled,
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  margin-top: 0;
 }
 .mainContainer.resources {
   width: 100vw;
