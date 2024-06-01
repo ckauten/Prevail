@@ -929,13 +929,6 @@ button:disabled,
   opacity: 0.5;
 }
 @media screen and (max-width: 480px) {
-  input[type='submit'],
-  input[type='reset'],
-  input[type='button'],
-  button,
-  .button {
-    padding: 0;
-  }
 }
 
 /* Header */
@@ -1405,7 +1398,6 @@ li {
   bottom: 0;
   margin: auto;
 }
-
 @media screen and (max-width: 480px) {
   #signup-form {
     -moz-flex-direction: column;
@@ -1570,6 +1562,9 @@ li {
   }
 }
 @media screen and (max-width: 430px) {
+  .form {
+    margin-right: 1em;
+  }
   .mainContainer {
     flex-direction: column;
     height: 100vh;
@@ -1600,6 +1595,7 @@ li {
     background: rgb(32, 32, 32);
     z-index: 1;
     border-bottom-right-radius: 1em;
+    padding-right: 1em;
   }
   .fa-bars {
     margin: 1em, 0.5em, 0.5em, 0.5em;
