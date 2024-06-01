@@ -1017,7 +1017,7 @@ button:disabled,
   height: 100vh;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow: scroll;
   margin-top: 0;
 }
 .mainContainer.resources {
@@ -1547,6 +1547,10 @@ li {
   .mainContainer {
     flex-direction: column;
     height: 100vh;
+  }
+  .mainContainer .faq {
+    height: auto;
+    overflow: auto;
   }
   .main-body {
     margin: 0;
