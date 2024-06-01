@@ -1028,8 +1028,8 @@ button:disabled,
   flex-grow: 1;
   align-items: center;
   justify-content: space-between;
-  margin: 1em 0;
-  position: relative;
+  margin: 0;
+  padding: 0;
   width: 100%;
   overflow: hidden;
 }
@@ -1084,17 +1084,13 @@ li {
 }
 
 .output {
-  display: flex;
-  flex-direction: column-reverse;
-  height: auto;
-  width: 60em;
+  flex-grow: 1;
+  width: 100%; /* Changed from 60em to 100% */
   margin-top: 5em;
   padding: 2%;
   font-size: 1rem;
   margin-bottom: 2.5vh;
-  /* border: solid thick white; */
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow: auto; /* Use auto to ensure scrolling */
 }
 #userLI {
   display: flex;
@@ -1543,10 +1539,7 @@ li {
     flex-direction: column;
     /* padding: 1em; */
   }
-  .main-body {
-    margin: 0;
-    padding: 4em 0 3em 0;
-  }
+
   .output {
     width: 100%;
     margin: 0;
