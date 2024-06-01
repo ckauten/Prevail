@@ -45,19 +45,16 @@
         </ul>
       </div>
 
-      <!-- <p href="" class="typewrite" data-period="2000" data-type="">
-        <span class="wrap"></span>
-      </p> -->
-
       <!-- user input area -->
-      <form class="user-area" action="" onsubmit="return false">
+      <form class="user-area" action="/sendAiReq" onsubmit="return false">
         <textarea
           data-gramm="false"
           data-gramm_editor="false"
           data-enable-grammarly="false"
           class="input"
           id="autoresizing"
-          placeholder="Say something!"></textarea>
+          placeholder="Say something!"
+          onkeydown="if(event.keyCode === 13) { event.preventDefault(); document.getElementById('submit').click(); }"></textarea>
         <i id="submit" type="submit" class="fa-solid fa-arrow-up"></i>
       </form>
     </div>

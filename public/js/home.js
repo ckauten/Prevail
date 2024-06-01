@@ -22,12 +22,12 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
 //feedback visibility toggle
 function expandFeedback() {
   document.getElementById('feedback-expanded').style.height = 'auto';
-  document.getElementById('feedback-expanded').style.visibility = 'visible';
+  document.getElementById('feedback-expanded').style.display = 'flex';
 }
 //feedback collapse toggle
 function collapseFeedback() {
   document.getElementById('feedback-expanded').style.height = '0em';
-  document.getElementById('feedback-expanded').style.visibility = 'hidden';
+  document.getElementById('feedback-expanded').style.display = 'none';
 }
 
 // home observer toggle depending on page
@@ -79,7 +79,7 @@ if (document.contains(document.querySelector('.output'))) {
 }
 
 async function generateText() {
-  const prompt = document.querySelector('textarea').value;
+  const prompt = document.querySelector('#autoresizing').value;
   const response = await fetch('chatPage/sendAiReq', {
     method: 'POST',
     headers: {
@@ -113,7 +113,7 @@ async function generateText() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
     // Clear the input field
-    document.querySelector('textarea').value = '';
+    document.querySelector('#autoresizing').value = '';
   } else {
     console.error('Error from server');
   }
