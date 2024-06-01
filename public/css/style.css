@@ -306,7 +306,7 @@ a {
   -webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   -ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   transition: border-bottom-color 0.2s ease, color 0.2s ease;
-  color: #1cb495;
+  color: rgba(210, 205, 205, 1);
   text-decoration: none;
 }
 a:hover {
@@ -549,9 +549,9 @@ ul.icons li a {
 }
 
 /* Form */
-form {
+/* form {
   margin: 0 0 2em 0;
-}
+} */
 form .message {
   text-decoration: none;
   -moz-transition: opacity 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
@@ -1019,6 +1019,7 @@ button:disabled,
   flex-direction: row;
   overflow: scroll;
   margin-top: 0;
+  scrollbar-width: none;
 }
 .mainContainer.resources {
   width: 100vw;
@@ -1069,6 +1070,9 @@ nav {
   transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.3s ease-out;
   transform: translateX(-100%);
   z-index: 1;
+}
+.menu-container nav li {
+  color: white;
 }
 
 nav.visible {
@@ -1378,6 +1382,11 @@ li {
 #ESLink {
   color: rgb(28, 180, 149);
   cursor: pointer;
+}
+
+#feedback-expanded {
+  height: 0em;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 480px) {

@@ -11,9 +11,18 @@
         <li><a href="/resources">Resources</a></li>
         <li><a href="/faq">FAQ</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/feedback">Feedback</a></li>
+        <li id="feedback"><a onclick="expandFeedback()" href="#">Feedback</a></li>
+        <li id="feedback-expanded">
+          <form action="https://formspree.io/f/mvoebaaq" method="POST">
+            <input type="text" name="name" placeholder="Your Name" />
+            <input type="email" name="_replyto" placeholder="Your Email" />
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="collapseFeedback()" id="collapse">Collapse</button>
+          </form>
+        </li>
         <li>
-          <a id="account" href="#"><i class="fa-solid fa-user"></i>Account</a>
+          <a id="account" href="#">Account</a>
         </li>
       </nav>
     </section>
