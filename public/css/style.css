@@ -1542,7 +1542,7 @@ li {
 @media screen and (max-width: 430px) {
   .mainContainer {
     flex-direction: column;
-    /* padding: 1em; */
+    height: 90vh;
   }
   .main-body {
     margin: 0;
@@ -1552,7 +1552,6 @@ li {
     width: 100%;
     margin: 0;
     padding: 1em;
-    height: 60vh;
   }
   .input {
     /* width: 90%; */
