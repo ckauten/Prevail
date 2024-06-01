@@ -1389,6 +1389,23 @@ li {
   visibility: hidden;
 }
 
+#aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 80%;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
 @media screen and (max-width: 480px) {
   #signup-form {
     -moz-flex-direction: column;

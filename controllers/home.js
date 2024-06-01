@@ -11,6 +11,9 @@ module.exports = {
   getFaq: (req, res) => {
     res.render('faq.ejs');
   },
+  getAbout: (req, res) => {
+    res.render('about.ejs');
+  },
   //renders home page once logged in
   getHome: async (req, res) => {
     try {
