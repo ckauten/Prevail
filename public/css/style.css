@@ -1013,7 +1013,7 @@ button:disabled,
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* changed to column to stack items vertically */
+  flex-direction: row;
   overflow: hidden;
 }
 .mainContainer.resources {
@@ -1087,18 +1087,20 @@ li {
 .output {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100vh - 6em); /* adjusts the height to fill the viewport minus the input area */
-  width: 100%;
+  height: auto;
+  width: 60em;
   margin-top: 5em;
   padding: 2%;
   font-size: 1rem;
   margin-bottom: 2.5vh;
-  overflow-y: scroll;
+  /* border: solid thick white; */
+  overflow: scroll;
   scrollbar-width: none;
 }
 #userLI {
   display: flex;
   justify-content: flex-end;
+  /* border: solid white thin; */
   border-radius: 0.5em;
   height: auto;
   width: auto;
@@ -1109,6 +1111,7 @@ li {
 #botLI {
   display: flex;
   justify-content: flex-start;
+  /* border: solid white thin; */
   border-radius: 0.5em;
   height: auto;
   width: auto;
@@ -1142,7 +1145,7 @@ li {
 }
 
 .input {
-  width: 100%; /* ensures it takes the full width */
+  width: 25vw;
   font-size: 1.5rem;
   color: white;
   background: rgba(0, 0, 0, 0.5);
@@ -1153,13 +1156,9 @@ li {
 
 .user-area {
   display: flex;
-  justify-content: center; /* centers the input area */
-  width: 100%; /* takes the full width */
-  position: fixed;
-  bottom: 0;
-  padding: 1em;
-}
 
+  margin-bottom: 0;
+}
 #submit {
   margin-left: 1vh;
   font-size: 3rem;
@@ -1175,6 +1174,7 @@ li {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  /* border: solid white thin; */
   border-radius: 1em;
   width: 80%;
   margin: auto;
@@ -1200,6 +1200,7 @@ li {
   width: 20em;
   height: 20em;
   margin: 1em;
+  /* align-items: center; */
   justify-content: center;
   font-weight: 600;
 }
@@ -1289,6 +1290,7 @@ li {
   display: none;
   justify-content: flex-start;
   flex-direction: column;
+  /* border: solid red; */
   width: auto;
 }
 .expandedLI {
@@ -1325,10 +1327,12 @@ li {
 #faqContainer {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
   width: 70%;
   height: 80%;
   color: white;
+  /* border: solid white thin; */
   position: absolute;
   top: 0;
   left: 0;
@@ -1538,6 +1542,7 @@ li {
 @media screen and (max-width: 430px) {
   .mainContainer {
     flex-direction: column;
+    /* padding: 1em; */
   }
   .main-body {
     margin: 0;
@@ -1549,6 +1554,7 @@ li {
     padding: 1em;
   }
   .input {
+    /* width: 90%; */
     font-size: 1rem;
   }
   #submit {
