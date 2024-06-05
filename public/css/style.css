@@ -1560,6 +1560,9 @@ li {
   }
 }
 @media screen and (max-width: 430px) {
+  #prev {
+    margin-top: 1em;
+  }
   .form {
     margin-right: 1em;
   }
