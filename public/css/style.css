@@ -1014,6 +1014,7 @@ button:disabled,
   margin-top: 0;
   scrollbar-width: none;
 }
+
 .mainContainer.resources {
   width: 100vw;
   height: 100vh;
@@ -1381,9 +1382,10 @@ li {
 }
 
 #aboutContainer {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 60%;
   height: 80%;
@@ -1395,6 +1397,10 @@ li {
   right: 0;
   bottom: 0;
   margin: auto;
+  scrollbar-width: none;
+}
+#bottom {
+  padding-bottom: 1em;
 }
 @media screen and (max-width: 480px) {
   #signup-form {
@@ -1494,6 +1500,9 @@ li {
   }
 }
 @media screen and (max-width: 980px) {
+  #aboutContainer {
+    z-index: 0;
+  }
   .mainContainer {
     height: 100vh;
     width: 100%;
