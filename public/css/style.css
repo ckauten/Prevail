@@ -1121,8 +1121,6 @@ li {
   background: rgba(69, 69, 69, 0.5);
 }
 
-/* Add these styles at the end of your style.css file */
-
 /* Chat message styling */
 .chat-message {
   margin-bottom: 1em;
@@ -1568,7 +1566,8 @@ li {
   .mainContainer {
     width: 100%;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
+    /* margin: 0; */
   }
   .mainContainer .faq {
     height: auto;
