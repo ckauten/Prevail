@@ -118,7 +118,53 @@ async function generateText() {
     console.error('Error from server');
   }
 }
+// Resources expansion logic
+function expand(element) {
+  if (element.classList.contains('expanded')) {
+    element.classList.remove('expanded');
+    document.querySelector('.resource-container').classList.remove('container-expanded');
+    element.querySelector('.expanded-content').style.display = 'none';
+    element.querySelector('.node-label').style.display = 'flex';
+  } else {
+    element.classList.add('expanded');
+    document.querySelector('.resource-container').classList.add('container-expanded');
+    element.querySelector('.expanded-content').style.display = 'flex';
+    element.querySelector('.node-label').style.display = 'none';
+  }
+  if (window.innerWidth <= 980) {
+    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  } else {
+    element.scrollIntoView({ block: 'center' });
+  }
+}
 
+// Emergency services expansion logic
+document.addEventListener('DOMContentLoaded', function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('showEmergencyServices') === 'true') {
+    const emergencyElement = document.querySelector('#emergency');
+    if (emergencyElement) {
+      expand(emergencyElement);
+    }
+  }
+});
+
+//FAQ expansion logic
+function faqExpand(event) {
+  if (event.classList.contains('faq-expanded')) {
+    event.classList.remove('faq-expanded');
+    event.querySelector('.bottom-faq').style.display = 'none';
+    event.querySelector('.fa-chevron-down').classList.replace('fa-chevron-down', 'fa-chevron-right');
+  } else {
+    event.classList.add('faq-expanded');
+    event.querySelector('.bottom-faq').style.display = 'flex';
+    event.querySelector('.fa-chevron-right').classList.replace('fa-chevron-right', 'fa-chevron-down');
+  }
+}
+
+function ESRedirect() {
+  window.location.href = '/resources?showEmergencyServices=true';
+}
 // background video function
 (function () {
   'use strict';
