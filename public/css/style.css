@@ -83,7 +83,7 @@ body {
 }
 #home-body {
   padding: 0;
-  height: 100vh;
+  height: 90vh;
   margin: 0;
 }
 body.is-preload *,
