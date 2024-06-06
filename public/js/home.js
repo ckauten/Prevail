@@ -78,6 +78,27 @@ if (document.contains(document.querySelector('.output'))) {
   });
 }
 
+async function clearChatHistory() {
+  await fetch('/clearChat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({}), // No body needed for this request
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        location.reload();
+      } else {
+        alert('Failed to clear chat history.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
 async function generateText() {
   const prompt = document.querySelector('#autoresizing').value;
   const response = await fetch('chatPage/sendAiReq', {

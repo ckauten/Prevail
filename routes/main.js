@@ -9,6 +9,7 @@ router.get('/home', ensureAuth, homeController.getHome);
 router.get('/resources', homeController.getResources);
 router.get('/faq', homeController.getFaq);
 router.get('/about', homeController.getAbout);
+router.post('/clearChat', homeController.clearChat);
 router.get('/login', authController.getLogin);
 router.post('/login', authController.postLogin);
 router.get('/logout', authController.logout);

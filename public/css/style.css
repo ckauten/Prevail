@@ -1402,6 +1402,16 @@ li {
 #bottom {
   padding-bottom: 1em;
 }
+#chatHistory {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 0.5em;
+  background: rgba(69, 69, 69, 0.5);
+}
+#chatHistory:hover {
+  border: solid thin rgb(28, 180, 149);
+}
+
 @media screen and (max-width: 480px) {
   #signup-form {
     -moz-flex-direction: column;
