@@ -20,6 +20,9 @@ require('./config/passport')(passport);
 // Connect to database
 connectDB();
 
+// favicon supression
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // Middleware setup
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public/'));
