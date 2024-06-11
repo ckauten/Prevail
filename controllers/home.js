@@ -56,15 +56,4 @@ module.exports = {
       res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
   },
-  clearGuestHistory: async (req, res) => {
-    try {
-      // Delete all chats for the user
-      await Chat.deleteMany({ user: req.user });
-      // Send a success response
-      res.json({ success: true });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
-    }
-  },
 };

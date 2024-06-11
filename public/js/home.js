@@ -2,6 +2,44 @@
 const textarea = document.getElementById('autoresizing');
 const nav = document.querySelector('nav');
 
+// Check URL for 'clearChat' parameter and clear chat history if present
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('clearChat') === 'true') {
+    clearChatHistory();
+  }
+});
+
+async function clearChatHistory() {
+  try {
+    const response = await fetch('/clearChat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}), // No body needed for this request
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      removeURLParameter('clearChat');
+      location.reload();
+    } else {
+      alert('Failed to clear chat history.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+//helper function to remove the url peram from the url
+function removeURLParameter(parameter) {
+  const url = new URL(window.location);
+  url.searchParams.delete(parameter);
+  window.history.replaceState(null, null, url);
+}
+
 // hamburger visibility toggle
 document.querySelector('.fa-bars').addEventListener('click', function () {
   document.querySelector('nav').classList.toggle('open');
@@ -76,62 +114,6 @@ if (document.contains(document.querySelector('.output'))) {
       generateText();
     });
   });
-}
-
-//Guest chat history clear
-window.addEventListener('beforeunload', function () {
-  sessionStorage.setItem('pageRefresh', 'true');
-});
-window.addEventListener('load', function () {
-  if (sessionStorage.getItem('pageRefresh')) {
-    sessionStorage.removeItem('pageRefresh');
-  } else {
-    clearGuestHistory();
-    location.reload();
-  }
-});
-
-//Clear guest history
-async function clearGuestHistory() {
-  await fetch('/clearGuestHistory', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({}), // No body needed for this request
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-      } else {
-        alert('Failed to clear chat history.');
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-}
-
-//Clear user history
-async function clearChatHistory() {
-  await fetch('/clearChat', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({}), // No body needed for this request
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        location.reload();
-      } else {
-        alert('Failed to clear chat history.');
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 }
 
 async function generateText() {
