@@ -2,14 +2,39 @@ const passport = require('passport');
 const validator = require('validator');
 const User = require('../models/User');
 
+const guestCredentials = {
+  email: 'guest@guest.com',
+  password: 'guestpassword',
+};
+
 exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect('/home');
   }
   res.render('login', {
-    // Make sure this is 'login', not '/login'
     title: 'Login',
   });
+};
+exports.getGuest = (req, res, next) => {
+  req.body.email = guestCredentials.email;
+  req.body.password = guestCredentials.password;
+
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      req.flash('errors', info);
+      return res.redirect('/login');
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      req.flash('success', { msg: 'Success! You are logged in as a guest.' });
+      res.redirect('/home');
+    });
+  })(req, res, next);
 };
 
 exports.postLogin = (req, res, next) => {

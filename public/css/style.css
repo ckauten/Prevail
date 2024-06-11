@@ -1412,6 +1412,10 @@ li {
   border: solid thin rgb(28, 180, 149);
 }
 
+#guest-form {
+  margin-top: 1em;
+}
+
 @media screen and (max-width: 480px) {
   #signup-form {
     -moz-flex-direction: column;

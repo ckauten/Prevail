@@ -10,10 +10,12 @@ router.get('/resources', homeController.getResources);
 router.get('/faq', homeController.getFaq);
 router.get('/about', homeController.getAbout);
 router.post('/clearChat', homeController.clearChat);
+router.post('/clearGuestHistory', homeController.clearGuestHistory);
 router.get('/login', authController.getLogin);
 router.post('/login', authController.postLogin);
 router.get('/logout', authController.logout);
 router.get('/signup', authController.getSignup);
 router.post('/signup', authController.postSignup);
+router.get('/getGuest', authController.getGuest);
 
 module.exports = router;
