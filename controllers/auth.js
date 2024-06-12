@@ -1,6 +1,7 @@
 const passport = require('passport');
 const validator = require('validator');
 const User = require('../models/User');
+const Chat = require('../models/Chat');
 
 const guestCredentials = {
   email: 'guest@guest.com',
@@ -15,11 +16,12 @@ exports.getLogin = (req, res) => {
     title: 'Login',
   });
 };
+
 exports.getGuest = (req, res, next) => {
   req.body.email = guestCredentials.email;
   req.body.password = guestCredentials.password;
 
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', async (err, user, info) => {
     if (err) {
       return next(err);
     }
@@ -27,12 +29,19 @@ exports.getGuest = (req, res, next) => {
       req.flash('errors', info);
       return res.redirect('/login');
     }
-    req.logIn(user, (err) => {
+    req.logIn(user, async (err) => {
       if (err) {
         return next(err);
       }
-      req.flash('success', { msg: 'Success! You are logged in as a guest.' });
-      res.redirect('/home');
+      try {
+        // this is the async logic that clears the chat history for the guest user
+        await Chat.deleteMany({ user: user._id });
+        req.flash('success', { msg: 'Success! You are logged in as a guest.' });
+        res.redirect('/home');
+      } catch (err) {
+        console.error('Error clearing chat history for guest:', err);
+        return next(err);
+      }
     });
   })(req, res, next);
 };
