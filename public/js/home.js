@@ -1,14 +1,6 @@
-// variables
+// Variables
 const textarea = document.getElementById('autoresizing');
 const nav = document.querySelector('nav');
-
-// Check URL for 'clearChat' parameter and clear chat history if present
-document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('clearChat') === 'true') {
-    clearChatHistory();
-  }
-});
 
 async function clearChatHistory() {
   try {
@@ -21,9 +13,30 @@ async function clearChatHistory() {
     });
 
     const data = await response.json();
-
     if (data.success) {
-      removeURLParameter('clearChat');
+      console.log('Chat history cleared.');
+    } else {
+      alert('Failed to clear chat history.');
+      return false;
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    return false;
+  }
+}
+
+async function clearHistory() {
+  try {
+    const response = await fetch('/clearChat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}), // No body needed for this request
+    });
+
+    const data = await response.json();
+    if (data.success) {
       location.reload();
     } else {
       alert('Failed to clear chat history.');
@@ -33,14 +46,7 @@ async function clearChatHistory() {
   }
 }
 
-//helper function to remove the url peram from the url
-function removeURLParameter(parameter) {
-  const url = new URL(window.location);
-  url.searchParams.delete(parameter);
-  window.history.replaceState(null, null, url);
-}
-
-// hamburger visibility toggle
+// Hamburger visibility toggle
 document.querySelector('.fa-bars').addEventListener('click', function () {
   document.querySelector('nav').classList.toggle('open');
   var nav = document.querySelector('nav');
@@ -48,7 +54,7 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
     nav.classList.remove('visible');
     setTimeout(function () {
       nav.style.display = 'none';
-    }, 500); //should match transition speed
+    }, 500); // Should match transition speed
   } else {
     nav.style.display = 'flex';
     setTimeout(function () {
@@ -57,18 +63,18 @@ document.querySelector('.fa-bars').addEventListener('click', function () {
   }
 });
 
-//feedback visibility toggle
+// Feedback visibility toggle
 function expandFeedback() {
   document.getElementById('feedback-expanded').style.height = 'auto';
   document.getElementById('feedback-expanded').style.display = 'flex';
 }
-//feedback collapse toggle
+
 function collapseFeedback() {
   document.getElementById('feedback-expanded').style.height = '0em';
   document.getElementById('feedback-expanded').style.display = 'none';
 }
 
-// home observer toggle depending on page
+// Home observer toggle depending on page
 if (document.contains(document.querySelector('.output'))) {
   document.addEventListener('DOMContentLoaded', function () {
     // MutationObserver to watch for added elements and apply styles
@@ -156,16 +162,18 @@ async function generateText() {
     console.error('Error from server');
   }
 }
+
 // Resources expansion logic
 function expand(element) {
+  const container = document.querySelector('.resource-container');
   if (element.classList.contains('expanded')) {
     element.classList.remove('expanded');
-    document.querySelector('.resource-container').classList.remove('container-expanded');
+    container.classList.remove('container-expanded');
     element.querySelector('.expanded-content').style.display = 'none';
     element.querySelector('.node-label').style.display = 'flex';
   } else {
     element.classList.add('expanded');
-    document.querySelector('.resource-container').classList.add('container-expanded');
+    container.classList.add('container-expanded');
     element.querySelector('.expanded-content').style.display = 'flex';
     element.querySelector('.node-label').style.display = 'none';
   }
@@ -187,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-//FAQ expansion logic
+// FAQ expansion logic
 function faqExpand(event) {
   if (event.classList.contains('faq-expanded')) {
     event.classList.remove('faq-expanded');
@@ -203,15 +211,14 @@ function faqExpand(event) {
 function ESRedirect() {
   window.location.href = '/resources?showEmergencyServices=true';
 }
-// background video function
+
+// Background video function
 (function () {
   'use strict';
 
   var $body = document.querySelector('body');
 
   // Methods/polyfills.
-
-  // classList | (c) @remy | github.com/remy/polyfills | rem.mit-license.org
   !(function () {
     function t(t) {
       this.el = t;

@@ -1,7 +1,7 @@
 const Chat = require('../models/Chat');
 
 module.exports = {
-  //starts the home page get request
+  // Starts the home page get request
   getIndex: (req, res) => {
     res.render('index.ejs');
   },
@@ -14,7 +14,7 @@ module.exports = {
   getAbout: (req, res) => {
     res.render('about.ejs');
   },
-  //renders home page once logged in
+  // Renders home page once logged in
   getHome: async (req, res) => {
     try {
       // Find all chats for the user, sorted by creation date
@@ -27,8 +27,8 @@ module.exports = {
       if (chatCount === 0) {
         await Chat.create({
           chat: {
-            userPrompt: `your name is Grace. You are a mental health assistant. The users name is ${req.user}. Your answers will be gentle and concise`,
-            botResponse: 'ok i will remember that and not ask how i can support the user every time',
+            userPrompt: `Your name is Grace. You are a mental health assistant. The user's name is ${req.user}. Your answers will be gentle and concise.`,
+            botResponse: 'Ok, I will remember that and not ask how I can support the user every time.',
           },
           user: req.user,
         });
@@ -44,7 +44,7 @@ module.exports = {
       res.status(500).send('Internal Server Error');
     }
   },
-  //clears chat history
+  // Clears chat history
   clearChat: async (req, res) => {
     try {
       // Delete all chats for the user

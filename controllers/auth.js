@@ -1,7 +1,6 @@
 const passport = require('passport');
 const validator = require('validator');
 const User = require('../models/User');
-// const { clearChatHistory } = require('../public/js/home.js');
 
 const guestCredentials = {
   email: 'guest@guest.com',
@@ -33,7 +32,7 @@ exports.getGuest = (req, res, next) => {
         return next(err);
       }
       req.flash('success', { msg: 'Success! You are logged in as a guest.' });
-      res.redirect('/home?clearChat=true'); // Redirect with a query parameter to trigger chat history clearing
+      res.redirect('/home');
     });
   })(req, res, next);
 };
